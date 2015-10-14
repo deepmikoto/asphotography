@@ -1,0 +1,3 @@
+asphotography_app_homepage:
+    path:     /
+    defaults: { _controller: PhotographyBundle:App:home }

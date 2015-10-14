@@ -1,0 +1,13 @@
+{% extends 'PhotographyBundle::layout.html.twig' %}
+{% block body %}
+    <div class="container">
+        <div class="text-center form-group" style="margin-top: 20%">
+            {% image '@PhotographyBundle/Resources/public/images/andreea-logo.png' output='images/asp_logo.png' %}
+            <img src="{{ asset_url }}" alt="Andreea Sanduloiu Photography" />
+            {% endimage %}
+        </div>
+        <h4 class="text-center">
+            - under construction -
+        </h4>
+    </div>
+{% endblock %}

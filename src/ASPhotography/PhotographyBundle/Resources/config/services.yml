@@ -1,0 +1,7 @@
+services:
+    asphotography.api:
+        class: ASPhotography\PhotographyBundle\Services\ApiService
+        arguments: [ "@service_container", "@doctrine.orm.entity_manager", "@request_stack", "@serializer" ]
+    asphotography.api.templating:
+        class: ASPhotography\PhotographyBundle\Services\TemplatingService
+        arguments: [ "@templating", "@serializer" ]

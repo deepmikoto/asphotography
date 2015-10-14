@@ -1,0 +1,7 @@
+asphotography_app:
+    resource: "@PhotographyBundle/Resources/config/routes/_app.yml"
+    prefix:   /
+
+asphotography_api:
+    resource: "@PhotographyBundle/Resources/config/routes/_api.yml"
+    prefix:   /_api

@@ -1,0 +1,7 @@
+portfolio:
+    resource: "@PhotographyBundle/Resources/config/routing.yml"
+    prefix:   /
+
+admin:
+    resource: "@AdminBundle/Resources/config/routing.yml"
+    prefix:   /

@@ -1,0 +1,19 @@
+@import "mixins", "animations", "style_templates";
+
+a {
+  &:active {
+    outline: none;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+html {
+  height: 100%;
+  body {
+    font-family: 'Roboto Condensed', sans-serif;
+    height: 100%;
+    background-color: #FFFFFF;
+  }
+}
