@@ -1,3 +1,10 @@
-admin_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: AdminBundle:Default:index }
+asphotography_admin_dashboard:
+    path:     /
+    defaults: { _controller: AdminBundle:Dashboard:dashboard }
+asphotography_admin_login:
+    path:     /login
+    defaults: { _controller: AdminBundle:Security:login }
+asphotography_admin_logout:
+    path:     /logout
+asphotography_admin_login_check:
+    path:     /login_check

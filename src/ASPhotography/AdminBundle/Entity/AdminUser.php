@@ -120,7 +120,6 @@ class AdminUser implements UserInterface, \Serializable
     {
         list (
             $this->id,
-            $this->email,
             $this->password,
             $this->salt
             ) = unserialize( $serialized )
@@ -304,6 +303,6 @@ class AdminUser implements UserInterface, \Serializable
      */
     public function getRoles()
     {
-        return $this->roles;
+        return $this->roles->toArray();
     }
 }

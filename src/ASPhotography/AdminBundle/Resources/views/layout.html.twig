@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    {% stylesheets
+    'bundles/admin/css/bootstrap.css'
+    'bundles/admin/css/font-awesome.css'
+    'bundles/admin/css/metisMenu.css'
+    'bundles/admin/css/timeline.css'
+    'bundles/admin/css/sb-admin-2.css'
+    'bundles/admin/css/morris.css'
+    'bundles/admin/scss/admin.scss'
+    output='css/adminarea/asphotography.admin.css' filter='cssrewrite'
+    %}
+        <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+    {% endstylesheets %}
+    {% image '@AdminBundle/Resources/public/images/eos-350d_16.png' output='images/admin/favicon.png' %}
+        <link rel="icon" type="image/png" href="{{ asset_url }}">
+    {% endimage %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+    <title>AS Photography Admin</title>
+</head>
+<body>
+{% block content %}
+    <div id="wrapper">
+        {% block navigation %}
+            <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+                {% block navigation_header %}
+                    {% include 'AdminBundle:Parts:header.html.twig' %}
+                {% endblock %}
+                {% block navigation_sidebar %}
+                    {% include 'AdminBundle:Parts:sidebar.html.twig' %}
+                {% endblock %}
+            </nav>
+        {% endblock %}
+        <div id="page-wrapper" style="min-height: 647px;">
+            {% block page_content %}
+
+            {% endblock %}
+        </div>
+    </div>
+{% endblock %}
+{% javascripts
+    '@AdminBundle/Resources/public/js/vendor/jquery-2.1.4.js'
+    '@AdminBundle/Resources/public/js/vendor/bootstrap.js'
+    '@AdminBundle/Resources/public/js/vendor/metisMenu.js'
+    '@AdminBundle/Resources/public/js/vendor/sb-admin-2.js'
+    '@AdminBundle/Resources/public/js/admin.js'
+    output='js/adminarea/asphotography.admin.js'
+%}
+    <script type="text/javascript" src="{{ asset_url }}" ></script>
+{% endjavascripts %}
+{% block charts_js %}
+    {% javascripts
+        '@AdminBundle/Resources/public/js/vendor/raphael.js'
+        '@AdminBundle/Resources/public/js/vendor/morris.js'
+        '@AdminBundle/Resources/public/js/vendor/morris-data.js'
+        output='js/adminarea/asphotography.charts.js'
+    %}
+        <script type="text/javascript" src="{{ asset_url }}" ></script>
+    {% endjavascripts %}
+{% endblock %}
+{% block extra_js %}{% endblock %}
+</body>
+</html>
+
+

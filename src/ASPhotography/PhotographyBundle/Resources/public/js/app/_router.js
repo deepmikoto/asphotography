@@ -32,11 +32,11 @@ asphotography.Router = Marionette.AppRouter.extend({
     },
     logoutAction: function()
     {
-        // to be implemented is needed
+        // to be implemented if needed
     },
     showLogin: function()
     {
-        // to be implemented is needed
+        // to be implemented if needed
     },
     updateAwareness: function( currentPage )
     {

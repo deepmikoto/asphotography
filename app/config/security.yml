@@ -19,7 +19,7 @@ security:
             form_login:
                 login_path: asphotography_admin_login
                 check_path: asphotography_admin_login_check
-                default_target_path: asphotography_admin_homepage
+                default_target_path: asphotography_admin_dashboard
                 always_use_default_target_path: true
             logout:
                 path:   asphotography_admin_logout
