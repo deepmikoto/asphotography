@@ -17,6 +17,9 @@ class SecurityController extends Controller
      */
     public function loginAction()
     {
+        if( $this->getUser() != null ){
+            return $this->redirectToRoute( 'asphotography_admin_dashboard' );
+        }
         $authenticationUtils = $this->get( 'security.authentication_utils' );
         $error = $authenticationUtils->getLastAuthenticationError();
         $lastUsername = $authenticationUtils->getLastUsername();
