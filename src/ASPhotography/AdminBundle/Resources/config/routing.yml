@@ -8,3 +8,7 @@ asphotography_admin_logout:
     path:     /logout
 asphotography_admin_login_check:
     path:     /login_check
+
+asphotography_admin_category:
+    resource: "@AdminBundle/Resources/config/routes/_category.yml"
+    prefix:   /category

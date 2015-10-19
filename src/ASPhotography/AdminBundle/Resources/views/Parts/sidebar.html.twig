@@ -10,7 +10,6 @@
                                 </button>
                             </span>
                 </div>
-                <!-- /input-group -->
             </li>
             <li>
                 <a href="{{ path('asphotography_admin_dashboard') }}">
@@ -18,14 +17,16 @@
                 </a>
             </li>
             <li>
-                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-tags fa-fw"></i> Categories<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
-                    <li>
-                        <a href="flot.html">Flot Charts</a>
-                    </li>
-                    <li>
-                        <a href="morris.html">Morris.js Charts</a>
-                    </li>
+                    {% set categories = admin_manager.getSidebarCategories() %}
+                    {% for category in categories %}
+                        <li>
+                            <a href="{{ path('asphotography_admin_category_overview', { 'id': category.id, 'slug': category.slug } ) }}">
+                                {{ category.name }}
+                            </a>
+                        </li>
+                    {% endfor %}
                 </ul>
                 <!-- /.nav-second-level -->
             </li>

@@ -37,6 +37,7 @@ twig:
     strict_variables: "%kernel.debug%"
     globals:
         site_title: Andreea Sanduloiu Photography
+        admin_manager: "@asphotography.admin.manager"
 
 # Assetic Configuration
 assetic:
