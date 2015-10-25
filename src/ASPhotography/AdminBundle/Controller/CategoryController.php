@@ -32,10 +32,8 @@ class CategoryController extends Controller
         if( $category == null ) return $this->createNotFoundException( 'Category not found!' );
 
         return $this->render( 'AdminBundle:Category:overview.html.twig', [
-            'category' => [
-                'name' => $category->getName(),
-                'id'   => $category->getId()
-            ]
+            'category' => $category,
+            'photos' => $category->getPhotos()
         ]);
     }
 }

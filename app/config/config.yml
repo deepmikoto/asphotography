@@ -95,3 +95,19 @@ doctrine_migrations:
     namespace: Application\Migrations
     table_name: migration_versions
     name: Application Migrations
+
+#liip imagine bundle filters
+liip_imagine:
+    resolvers:
+       default:
+          web_path: ~
+    filter_sets:
+        cache: ~
+        category_overview:
+            quality: 90
+            filters:
+                thumbnail: { size: [265, 198], mode: outbound }
+        photo_edit:
+            quality: 90
+            filters:
+                thumbnail: { size: [780, 500], mode: outbound }

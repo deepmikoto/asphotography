@@ -12,3 +12,6 @@ asphotography_admin_login_check:
 asphotography_admin_category:
     resource: "@AdminBundle/Resources/config/routes/_category.yml"
     prefix:   /category
+asphotography_admin_photo:
+    resource: "@AdminBundle/Resources/config/routes/_photo.yml"
+    prefix:   /photo

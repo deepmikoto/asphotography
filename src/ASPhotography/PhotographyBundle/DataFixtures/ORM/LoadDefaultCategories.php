@@ -9,7 +9,6 @@
 namespace ASPhotography\PhotographyBundle\DataFixtures\ORM;
 
 
-use ASPhotography\AdminBundle\Entity\UserRole;
 use ASPhotography\PhotographyBundle\Entity\Category;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;

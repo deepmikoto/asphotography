@@ -1,0 +1,73 @@
+{% extends 'AdminBundle::layout.html.twig' %}
+{% block title %}AS Photography Admin - edit photo{% endblock %}
+{% block page_content %}
+    <div class="row">
+        <div class="page-header">
+            <h3>
+                Edit photo
+                <small>
+                    <a href="{{ path('asphotography_admin_category_overview', { 'id': form.vars.value.category.id, 'slug': form.vars.value.category.slug }) }}">
+                        <i class="glyphicon glyphicon-arrow-left"></i> back to <strong>{{ form.vars.value.category.name }}</strong> overview
+                    </a>
+                </small>
+            </h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            {% for flashMessage in app.session.flashbag.get('success') %}
+                <div class="alert alert-success alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    {{ flashMessage | raw }}
+                </div>
+            {% endfor %}
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="glyphicon glyphicon-pencil"></i> Photo attributes
+                </div>
+                <div class="panel-body">
+                    {{ form_start(form) }}
+                        <div class="form-group">
+                            {% if form_errors( form.caption ) %}
+                                <div class="alert alert-danger">
+                                    {{ form_errors( form.caption ) }}
+                                </div>
+                            {% endif %}
+                            {{ form_label( form.caption ) }}
+                            {{ form_widget( form.caption ) }}
+                        </div>
+                        <div class="form-group">
+                            {% if form_errors( form.category ) %}
+                                <div class="alert alert-danger">
+                                    {{ form_errors( form.category ) }}
+                                </div>
+                            {% endif %}
+                            {{ form_label( form.category ) }}
+                            {{ form_widget( form.category ) }}
+                        </div>
+                        <div class="form-group">
+                            {% if form_errors( form.file ) %}
+                                <div class="alert alert-danger">
+                                    {{ form_errors( form.file ) }}
+                                </div>
+                            {% endif %}
+                            {{ form_label( form.file ) }}
+                            <div class="form-group">
+                                <span class="btn btn-default btn-file">
+                                    {{ form_widget( form.file ) }}
+                                    <i class="glyphicon glyphicon-picture"></i> upload
+                                </span>
+                                {{ form_widget( form.save ) }}
+                            </div>
+                        </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 thumb">
+            <a class="thumbnail" href="{{ asset( form.vars.value.webPath ) }}" data-lightbox="{{ form.vars.value.id }}" data-title="{{ form.vars.value.caption|raw }}">
+                <img class="img-responsive" src="{{ asset( form.vars.value.webPath )|imagine_filter( 'photo_edit' ) }}" alt="image">
+            </a>
+        </div>
+    </div>
+{% endblock %}

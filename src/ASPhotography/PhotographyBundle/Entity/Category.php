@@ -2,6 +2,7 @@
 
 namespace ASPhotography\PhotographyBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -51,6 +52,11 @@ class Category
     private $updated;
 
     /**
+     * @ORM\OneToMany(targetEntity="ASPhotography\PhotographyBundle\Entity\Photo", mappedBy="category")
+     */
+    private $photos;
+
+    /**
      * @ORM\PrePersist
      */
     public function onPrePersist()
@@ -65,6 +71,25 @@ class Category
     public function onPreUpdate()
     {
         $this->setUpdated( new \DateTime() );
+    }
+
+    /**
+     * string representation of the class
+     * usually used for forms
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getName();
+    }
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->photos = new ArrayCollection();
     }
 
     /**
@@ -182,5 +207,39 @@ class Category
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    /**
+     * Add photo
+     *
+     * @param \ASPhotography\PhotographyBundle\Entity\Photo $photo
+     *
+     * @return Category
+     */
+    public function addPhoto(Photo $photo)
+    {
+        $this->photos[] = $photo;
+
+        return $this;
+    }
+
+    /**
+     * Remove photo
+     *
+     * @param \ASPhotography\PhotographyBundle\Entity\Photo $photo
+     */
+    public function removePhoto(Photo $photo)
+    {
+        $this->photos->removeElement($photo);
+    }
+
+    /**
+     * Get photos
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPhotos()
+    {
+        return $this->photos;
     }
 }
