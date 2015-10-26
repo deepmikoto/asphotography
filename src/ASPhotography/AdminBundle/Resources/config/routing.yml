@@ -1,5 +1,8 @@
-asphotography_admin_dashboard:
+asphotography_admin_index:
     path:     /
+    defaults: { _controller: AdminBundle:Dashboard:index }
+asphotography_admin_dashboard:
+    path:     /dashboard
     defaults: { _controller: AdminBundle:Dashboard:dashboard }
 asphotography_admin_login:
     path:     /login

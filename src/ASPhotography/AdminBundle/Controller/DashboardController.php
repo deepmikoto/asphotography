@@ -11,6 +11,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class DashboardController extends Controller
 {
     /**
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function indexAction()
+    {
+        return $this->redirectToRoute( 'asphotography_admin_dashboard' );
+    }
+
+    /**
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function dashboardAction()
