@@ -16,7 +16,7 @@
             {% endfor %}
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <i class="glyphicon glyphicon-pencil"></i> Photo list
+                    <i class="glyphicon glyphicon-list"></i> Photo list
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive">
@@ -26,6 +26,7 @@
                                     <th>#</th>
                                     <th>Preview</th>
                                     <th>Caption</th>
+                                    <th>Date added</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -39,6 +40,7 @@
                                             </a>
                                         </td>
                                         <td>{{ photo.caption|raw }}</td>
+                                        <td>{{ photo.date|date( 'd.m.Y H:i:s') }}</td>
                                         <td>
                                             <div class="btn-group">
                                                 <a href="{{ path('asphotography_admin_photo_edit', {'id': photo.id} ) }}" class="btn btn-xs btn-primary btn-circle"><i class="fa fa-pencil"></i></a>
@@ -50,6 +52,14 @@
                                         </td>
                                     </tr>
                                 {% endfor %}
+                                {% if photos|length == 0 %}
+                                    <tr>
+                                        <td></td>
+                                        <td colspan="4">
+                                            <h5 class="text-center">There are no unallocated photos</h5>
+                                        </td>
+                                    </tr>
+                                {% endif %}
                             </tbody>
                         </table>
                     </div>
