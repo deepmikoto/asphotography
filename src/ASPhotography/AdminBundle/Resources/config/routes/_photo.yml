@@ -7,3 +7,6 @@ asphotography_admin_photo_edit:
 asphotography_admin_photo_delete:
     path:     /delete/{id}
     defaults: { _controller: AdminBundle:Photo:deletePhoto }
+asphotography_admin_photo_unallocated_photos:
+    path:     /unallocated-photos
+    defaults: { _controller: AdminBundle:Photo:unallocatedPhotos }

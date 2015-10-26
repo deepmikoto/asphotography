@@ -49,7 +49,7 @@ class PhotoController extends Controller
                 } else {
                     $this->addFlash( 'success', '<strong>Awesome!</strong> You added a new photo! You have to assign it to a category so it will be visible on the site' );
 
-                    return $this->redirectToRoute( 'asphotography_admin_photo_add' );
+                    return $this->redirectToRoute( 'asphotography_admin_photo_unallocated_photos' );
                 }
             }
         }
@@ -114,5 +114,28 @@ class PhotoController extends Controller
         } else {
             return $this->redirectToRoute( 'asphotography_admin_dashboard' );
         }
+    }
+
+    /**
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function unallocatedPhotosAction( )
+    {
+        /** @var \Doctrine\ORM\EntityManager $em */
+        $em = $this->getDoctrine()->getManager();
+        $photos = $em->getRepository( 'PhotographyBundle:Photo' )->findBy([
+            'category' => null
+        ]);
+        $allocatedPhotosQuery = $em->getRepository( 'PhotographyBundle:Photo' )->createQueryBuilder( 'p' );
+        $allocatedPhotosQuery
+            ->select( 'COUNT( DISTINCT p.id )' )
+            ->where( 'p.category IS NOT NULL' )
+        ;
+        $allocatedPhotosCount = $allocatedPhotosQuery->getQuery()->getSingleScalarResult();
+
+        return $this->render('AdminBundle:Photo:unallocated_photos.html.twig', [
+            'photos' => $photos,
+            'allocatedPhotosCount' => $allocatedPhotosCount
+        ]);
     }
 }

@@ -5,11 +5,13 @@
         <div class="page-header">
             <h3>
                 Edit photo
-                <small>
-                    <a href="{{ path('asphotography_admin_category_overview', { 'id': form.vars.value.category.id, 'slug': form.vars.value.category.slug }) }}">
-                        <i class="glyphicon glyphicon-arrow-left"></i> back to <strong>{{ form.vars.value.category.name }}</strong> overview
-                    </a>
-                </small>
+                {% if form.vars.value.category.id is defined %}
+                    <small>
+                        <a href="{{ path('asphotography_admin_category_overview', { 'id': form.vars.value.category.id, 'slug': form.vars.value.category.slug }) }}">
+                            <i class="glyphicon glyphicon-arrow-left"></i> back to <strong>{{ form.vars.value.category.name }}</strong> overview
+                        </a>
+                    </small>
+                {% endif %}
             </h3>
         </div>
     </div>

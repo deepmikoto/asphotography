@@ -1,0 +1,88 @@
+{% extends 'AdminBundle::layout.html.twig' %}
+{% block title %}AS Photography Admin - add photo{% endblock %}
+{% block page_content %}
+    <div class="row">
+        <div class="page-header">
+            <h3>Unallocated photos <small>( photos that aren't placed in a category don't show up on the site )</small></h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-8">
+            {% for flashMessage in app.session.flashbag.get('success') %}
+                <div class="alert alert-success alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    {{ flashMessage | raw }}
+                </div>
+            {% endfor %}
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="glyphicon glyphicon-pencil"></i> Photo list
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Preview</th>
+                                    <th>Caption</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for photo in photos %}
+                                    <tr>
+                                        <td>{{ loop.index }}</td>
+                                        <td>
+                                            <a href="{{ asset( photo.webPath ) }}" data-lightbox="{{ photo.id }}" data-title="{{ photo.caption|raw }}">
+                                                <img class="img-responsive" src="{{ asset( photo.webPath )|imagine_filter( 'thumb_64' ) }}" alt="image">
+                                            </a>
+                                        </td>
+                                        <td>{{ photo.caption|raw }}</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <a href="{{ path('asphotography_admin_photo_edit', {'id': photo.id} ) }}" class="btn btn-xs btn-primary btn-circle"><i class="fa fa-pencil"></i></a>
+                                                <a href="#" data-href="{{ path('asphotography_admin_photo_delete', {'id': photo.id} ) }}?backURL={{ path(app.request.attributes.get('_route'),app.request.attributes.get('_route_params')) }}"
+                                                   class="btn btn-xs btn-danger btn-circle" data-toggle="modal" data-target="#delete-confirmation">
+                                                    <i class="fa fa-trash"></i>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-bar-chart-o fa-fw"></i> Unallocated ratio
+                </div>
+                <div class="panel-body">
+                    <div id="unallocated-ratio-chart"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include 'AdminBundle:Parts:photo_delete_confirmation.html.twig' %}
+{% endblock %}
+{% block extra_js %}
+    <script type="text/javascript">
+        $(function () {
+            Morris.Donut({
+                element: 'unallocated-ratio-chart',
+                data: [{
+                    label: "Unallocated photos",
+                    value: {{ photos|length }}
+                }, {
+                    label: "Allocated photos",
+                    value: {{ allocatedPhotosCount }}
+                }],
+                resize: true
+            });
+        });
+    </script>
+{% endblock %}

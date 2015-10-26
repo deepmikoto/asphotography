@@ -110,4 +110,8 @@ liip_imagine:
         photo_edit:
             quality: 90
             filters:
-                thumbnail: { size: [780, 500], mode: outbound }
+                thumbnail: { size: [780, 500], mode: inset }
+        thumb_64:
+            quality: 70
+            filters:
+                thumbnail: { size: [64, 64], mode: outbound }
