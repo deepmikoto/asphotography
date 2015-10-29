@@ -38,7 +38,7 @@ class TemplatingService
         $twigEngine = $this->twigEngine;
         /** @noinspection PhpVoidFunctionResultUsedInspection */
         $data = [
-
+            'landingPage' => $twigEngine->render( 'PhotographyBundle:Templates:landing_page.html.twig' )
         ];
 
         return $this->serializer->serialize( $data, 'json' );

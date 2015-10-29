@@ -1,0 +1,15 @@
+{% spaceless %}
+<div class="background"></div>
+<div class="logo-and-button" id="logo-and-button">
+    <div class="logo">
+        {% image '@PhotographyBundle/Resources/public/images/homepage/homepage_logo.png' output='images/homepage_logo.png' %}
+            <img src="{{ asset_url }}" id="logo" alt="Andreea Sanduloiu" />
+        {% endimage %}
+    </div>
+    <div class="button">
+        {% image '@PhotographyBundle/Resources/public/images/homepage/homepage_enter_button.png' output='images/enter_button.png' %}
+            <img src="{{ asset_url }}" id="button" alt="enter site" />
+        {% endimage %}
+    </div>
+</div>
+{% endspaceless %}

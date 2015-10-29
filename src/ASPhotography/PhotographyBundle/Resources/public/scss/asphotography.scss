@@ -15,5 +15,42 @@ html {
     font-family: 'Roboto Condensed', sans-serif;
     height: 100%;
     background-color: #FFFFFF;
+    .app-container {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      .landing-page {
+        opacity: 0;
+        position: relative;
+        .background {
+          position: fixed;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          z-index: -1;
+          background: transparent url("../images/homepage/homepage_bkg.png") no-repeat center center;
+          background-size: cover;
+        }
+        .logo-and-button {
+          display: inline-block;
+          position: absolute;
+          left: 0;
+          .logo {
+            margin-bottom: 20px;
+            width: 100%;
+            img {
+              max-width: 100%;
+            }
+          }
+          .button {
+            text-align: center;
+            img {
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
   }
 }
