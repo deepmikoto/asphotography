@@ -22,7 +22,7 @@ asphotography.RadioFunctions = Marionette.extend({
             _this.broadcast( 'global', 'body:resize',
                 {
                     width: $( document ).width(),
-                    height: $( document).height()
+                    height: $( document ).height()
                 }
             );
         });

@@ -2,13 +2,13 @@
  * Our Marionette app
  */
 asphotography.app = new Marionette.Application();
-
-/**
- * The main regions of our app
- */
-asphotography.app.addRegions({
-    appContainer: '#app-container'
-});
+//
+///**
+// * The main regions of our app
+// */
+//asphotography.app.addRegions({
+//    appContainer: '#app-container'
+//});
 
 /** we initialize app functions */
 asphotography.app.addInitializer(function()

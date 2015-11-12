@@ -14,7 +14,8 @@ asphotography.LandingPage = Marionette.ItemView.extend({
     },
     initialize: function ()
     {
-        this.listenTo( asphotography.app.globalChannel.vent, 'body:resize', this.adaptToWindowSize )
+        this.listenTo( asphotography.app.globalChannel.vent, 'body:resize', this.adaptToWindowSize );
+        this.listenTo( asphotography.app.globalChannel.vent, 'landing:page:hide', this.hideSelf );
     },
     getTemplate: function ()
     {
@@ -57,13 +58,25 @@ asphotography.LandingPage = Marionette.ItemView.extend({
             setTimeout(function (){
                 _this.$el.animate({
                     opacity: 1
-                }, 1000 );
+                }, 1000, function (){
+                    // todo: maybe display a gallery picture or something from URL
+                });
             }, 500 )
         }, 1000 );
     },
-    showPortfolio: function ( e )
+    hideSelf: function ( delay )
     {
-        e.preventDefault();
-        alert( 'we\'re working on it!' );
+        delay = delay || 1000;
+        this.$el.animate({
+            opacity: 0
+        }, delay );
+    },
+    showPortfolio: function ()
+    {
+        asphotography.app.categoriesContainer.show(
+            new asphotography.CategoriesView({
+                model: new asphotography.CategoryModel
+            })
+        );
     }
 });
