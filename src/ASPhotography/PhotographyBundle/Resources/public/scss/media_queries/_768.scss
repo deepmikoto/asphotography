@@ -1,3 +1,11 @@
-@media screen {
-
+@media screen and ( max-width: 768px ){
+  html {
+    body {
+      .categories-container {
+        .categories {
+          overflow-y: auto;
+        }
+      }
+    }
+  }
 }
