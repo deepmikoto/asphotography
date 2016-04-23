@@ -1,0 +1,16 @@
+{% spaceless %}
+    {% for i in ['first', 'second', 'third', 'fourth' ] %}
+        <div class="category {{ i }} col-lg-3 col-md-3 col-sm-3 col-xs-12">
+            <div class="background {{ i }}"></div>
+            <div class="overlay"></div>
+            <div class="cta">
+                <h3 class="category-name">{{ i|title }}</h3>
+                <div class="button">
+                    {% image '@PhotographyBundle/Resources/public/images/homepage/homepage_enter_button.png' output='images/enter_button.png' %}
+                        <img src="{{ asset_url }}" id="{{ i }}-button" alt="{{ i }}" />
+                    {% endimage %}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endspaceless %}

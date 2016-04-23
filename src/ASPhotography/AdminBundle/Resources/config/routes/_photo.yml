@@ -1,0 +1,12 @@
+asphotography_admin_photo_add:
+    path:     /add/{categoryId}
+    defaults: { _controller: AdminBundle:Photo:addPhoto, categoryId: null }
+asphotography_admin_photo_edit:
+    path:     /edit/{id}
+    defaults: { _controller: AdminBundle:Photo:editPhoto }
+asphotography_admin_photo_delete:
+    path:     /delete/{id}
+    defaults: { _controller: AdminBundle:Photo:deletePhoto }
+asphotography_admin_photo_unallocated_photos:
+    path:     /unallocated-photos
+    defaults: { _controller: AdminBundle:Photo:unallocatedPhotos }

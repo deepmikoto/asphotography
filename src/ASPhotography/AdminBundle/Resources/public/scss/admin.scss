@@ -1,0 +1,93 @@
+html {
+  height: 100%;
+  body {
+    font-family: 'Roboto Condensed', sans-serif;
+    height: 100%;
+    .login-background {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      height: 100%;
+      left: 0;
+      z-index: -1;
+      background: transparent url("../images/night-photography-background.jpg") no-repeat center center;
+      background-size: cover;
+      opacity: 0;
+    }
+    #wrapper {
+      nav {
+        &.navbar {
+          .navbar-header {
+            a {
+              &.navbar-brand {
+                padding: 3px 15px;
+                img {
+                  max-height: 100%;
+                }
+              }
+            }
+          }
+        }
+      }
+      #page-wrapper {
+        .row {
+          .gallery {
+            overflow: auto;
+            .page-header {
+              margin-top: 0;
+              overflow: auto;
+              .btn-group {
+                margin-top: 20px;
+              }
+            }
+            .thumb {
+              margin-bottom: 10px;
+              .thumbnail {
+                margin-bottom: 5px;
+              }
+              .btn-group {
+                display: block;
+                overflow: auto;
+                opacity: 0;
+                -webkit-transition: all .1s ease-in-out;
+                -moz-transition: all .1s ease-in-out;
+                -ms-transition: all .1s ease-in-out;
+                -o-transition: all .1s ease-in-out;
+                transition: all .1s ease-in-out;
+                a {
+                  &.btn-circle {
+                    float: none;
+                  }
+                }
+              }
+              &:hover {
+                .btn-group {
+                  opacity: 1;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .btn-file {
+      position: relative;
+      overflow: hidden;
+      input[type=file] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        min-width: 100%;
+        min-height: 100%;
+        font-size: 100px;
+        text-align: right;
+        filter: alpha(opacity=0);
+        opacity: 0;
+        outline: none;
+        background: white;
+        cursor: inherit;
+        display: block;
+      }
+    }
+  }
+}

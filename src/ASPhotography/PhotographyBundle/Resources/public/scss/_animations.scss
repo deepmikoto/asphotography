@@ -1,14 +1,21 @@
-@-webkit-keyframes nothing {
-  0%   { opacity: 0; left: 0; }
-  1%   { opacity: 1; left: 0; }
-  80% { opacity: 1; left: 100%; }
-  81% { opacity: 0; left: 101%; }
-  100% { opacity: 0; left: 101%; }
+@-webkit-keyframes sk-cubeGridScaleDelay {
+  0%, 70%, 100% {
+    -webkit-transform: scale3D(1, 1, 1);
+    transform: scale3D(1, 1, 1);
+  }
+  35% {
+    -webkit-transform: scale3D(0, 0, 1);
+    transform: scale3D(0, 0, 1);
+  }
 }
-@keyframes nothing {
-  0%   { opacity: 0; left: 0; }
-  1%   { opacity: 1; left: 0; }
-  80% { opacity: 1; left: 100%; }
-  81% { opacity: 0; left: 101%; }
-  100% { opacity: 0; left: 101%; }
+
+@keyframes sk-cubeGridScaleDelay {
+  0%, 70%, 100% {
+    -webkit-transform: scale3D(1, 1, 1);
+    transform: scale3D(1, 1, 1);
+  }
+  35% {
+    -webkit-transform: scale3D(0, 0, 1);
+    transform: scale3D(0, 0, 1);
+  }
 }

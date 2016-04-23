@@ -19,8 +19,7 @@ asphotography.Router = Marionette.AppRouter.extend({
     },
     homeAction: function()
     {
-        this.updateAwareness( 'homepage' );
-        this.updatePageTitle( 'Andreea Sanduloiu Photography' );
+        this.showLandingPage();
     },
     loginAction: function()
     {
@@ -32,18 +31,16 @@ asphotography.Router = Marionette.AppRouter.extend({
     },
     logoutAction: function()
     {
-        // to be implemented is needed
+        // to be implemented if needed
     },
     showLogin: function()
     {
-        // to be implemented is needed
+        // to be implemented if needed
     },
-    updateAwareness: function( currentPage )
+    showLandingPage: function ()
     {
-        asphotography.app.radio.broadcast( 'router', 'change:page', currentPage );
-    },
-    updatePageTitle: function( title )
-    {
-        asphotography.app.appFunctions.setPageTitle( title );
-    }   
+        asphotography.app.appContainer.show(
+            new asphotography.LandingPage()
+        );
+    }
 });

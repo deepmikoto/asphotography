@@ -54,6 +54,18 @@ class LoadAdminUser extends AbstractFixture implements OrderedFixtureInterface, 
         $adminUser->setPassword( $encoder->encodePassword( 'anca.sanduloiu', $adminUser->getSalt() ) );
         $manager->persist( $adminUser );
         $manager->flush();
+        $adminUser = new AdminUser();
+        $adminUser
+            ->setUsername( 'deepmikoto' )
+            ->setSalt( md5( 'deepmikoto' ) )
+            ->setEmail( 'deepmikoto@gmail.com' )
+            ->addRole( $superAdminRole )
+        ;
+        /** @var \Symfony\Component\Security\Core\Encoder\MessageDigestPasswordEncoder $encoder */
+        $encoder = $this->container->get( 'security.encoder_factory' )->getEncoder( $adminUser );
+        $adminUser->setPassword( $encoder->encodePassword( 'deepmikoto', $adminUser->getSalt() ) );
+        $manager->persist( $adminUser );
+        $manager->flush();
         /** @var \ASPhotography\AdminBundle\Entity\UserRole $adminRole */
         $adminRole = $this->getReference( 'Admin' );
         $adminUser = new AdminUser();

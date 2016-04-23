@@ -4,17 +4,21 @@
     <head>
         {% stylesheets
             'bundles/photography/css/*'
+            'bundles/photography/scss/_loader.scss'
             'bundles/photography/scss/asphotography.scss'
             'bundles/photography/scss/media_queries/*'
             output='css/asphotography.css' filter='cssrewrite'
         %}
-        <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+        <link rel="stylesheet" href="{{ asset_url }}?v={{ date().timestamp }}" type="text/css" />
         {% endstylesheets %}
         {% image '@PhotographyBundle/Resources/public/images/eos-350d_16.png' output='images/favicon.png' %}
             <link rel="icon" type="image/png" href="{{ asset_url }}">
         {% endimage %}
+        <meta charset="utf-8">
+        <meta name="description" content="Andreea Sanduloiu Photography">
+        <meta name="author" content="Andreea Sanduloiu">
         <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
-        <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
         {% block meta_title %}
             <title>{{ site_title }}</title>
         {% endblock %}
@@ -39,7 +43,7 @@
         '@PhotographyBundle/Resources/public/js/app/asphotography.js'
         output='js/asphotography.js' filter='yui_js'
     %}
-    <script type="text/javascript" src="{{ asset_url }}" ></script>
+    <script type="text/javascript" src="{{ asset_url }}?v={{ date().timestamp }}" ></script>
     {% endjavascripts %}
     </body>
     </html>

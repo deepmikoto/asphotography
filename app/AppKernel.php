@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new \Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
             new ASPhotography\AdminBundle\AdminBundle(),
             new ASPhotography\PhotographyBundle\PhotographyBundle(),
+            new \Liip\ImagineBundle\LiipImagineBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

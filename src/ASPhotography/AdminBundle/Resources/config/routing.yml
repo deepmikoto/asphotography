@@ -1,3 +1,20 @@
-admin_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: AdminBundle:Default:index }
+asphotography_admin_index:
+    path:     /
+    defaults: { _controller: AdminBundle:Dashboard:index }
+asphotography_admin_dashboard:
+    path:     /dashboard
+    defaults: { _controller: AdminBundle:Dashboard:dashboard }
+asphotography_admin_login:
+    path:     /login
+    defaults: { _controller: AdminBundle:Security:login }
+asphotography_admin_logout:
+    path:     /logout
+asphotography_admin_login_check:
+    path:     /login_check
+
+asphotography_admin_category:
+    resource: "@AdminBundle/Resources/config/routes/_category.yml"
+    prefix:   /category
+asphotography_admin_photo:
+    resource: "@AdminBundle/Resources/config/routes/_photo.yml"
+    prefix:   /photo

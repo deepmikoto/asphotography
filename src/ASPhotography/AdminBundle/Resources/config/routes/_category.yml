@@ -1,0 +1,3 @@
+asphotography_admin_category_overview:
+    path:     /{id}-{slug}/overview
+    defaults: { _controller: AdminBundle:Category:overview }
